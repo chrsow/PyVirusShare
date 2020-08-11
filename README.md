@@ -3,7 +3,7 @@ A Python 3 library to interact with VirusShare API v2. The project is inspired f
 
 ## Installation
 ```
-pip3 install virusshare
+pip3 install PyVirusShare
 ```
 
 ## Usage
