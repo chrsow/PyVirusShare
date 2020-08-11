@@ -47,9 +47,9 @@ TODO
 ## Documentation
 
 ## TODO
-[ ] Test on Linux
-[ ] Test on Windows
-[ ] Implement the functionalities with the list of hashes and its rate limit system.
+- [ ] Test on Linux
+- [ ] Test on Windows
+- [ ] Implement the functionalities with the list of hashes and its rate limit system.
 
 ## License
 This project is licensed under the terms of the MIT license.
