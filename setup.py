@@ -22,7 +22,12 @@ setuptools.setup(
     url='https://github.com/chrsow/VirusShare',
     packages=['virusshare'],
     python_requires='>=3.6.0',
+    install_requires=[            # I get to this in a second
+        'requests'
+    ],
     classifiers=[
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',
+        'Intended Audience :: Developers',  
+        'License :: OSI Approved :: MIT License'
     ])
