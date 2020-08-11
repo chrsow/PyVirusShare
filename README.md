@@ -38,13 +38,19 @@ print(result['data'])
 
 ```
 
+|Method|Example|
+|--|--|
+|Virustotal.info|v.info('<hash_str>')|
+|Virustotal.download|v.download('<hash_str>', '/tmp')|
+|Virustotal.quick|v.quick('<hash_str>')|
+|Virustotal.source|v.source('<hash_str>')|
+
 ### Command Line Usage
 <!-- ```
 $ PyVirusShare download -k <api_key> -hs <hash_string> -o <output_dir>
 ``` -->
 TODO
 
-## Documentation
 
 ## TODO
 - [ ] Test on Linux
