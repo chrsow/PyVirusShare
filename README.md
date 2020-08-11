@@ -1,5 +1,5 @@
 # PyVirusShare
-A Python 3 library to interact with VirusShare API v2. 
+A Python 3 library to interact with VirusShare API v2. Inspired from the latest [update](https://virusshare.com/whatsnew) from VirusShare and the existed tool, [vt-py](https://github.com/VirusTotal/vt-py); a client library for VirusTotal.
 
 ## Installation
 ```
@@ -12,7 +12,9 @@ pip3 install virusshare
 from virusshare import VirusShare
 
 v = VirusShare('<api_key>')
+
 result = v.get_info('a1ac533baaf7de1dae53cf5b465aeca28a7f20bdfc79e5a0a39437dd728c231f')
+
 print(result['data'])
 """
 {
