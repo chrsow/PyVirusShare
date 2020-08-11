@@ -1,11 +1,9 @@
 # PyVirusShare
-
-A python library to interact with Virusshare API v2. 
+A Python 3 library to interact with VirusShare API v2. 
 
 ## Installation
-
 ```
-pip install virusshare
+pip3 install virusshare
 ```
 
 ## Usage
@@ -14,19 +12,33 @@ pip install virusshare
 from virusshare import VirusShare
 
 v = VirusShare('<api_key>')
-result = v.get_info('778d0b014c58e8130804c56e9579a97eb77eee79')
+result = v.get_info('a1ac533baaf7de1dae53cf5b465aeca28a7f20bdfc79e5a0a39437dd728c231f')
 print(result['data'])
 """
 {
-    "filetype": "Zip archive data, at least v2.0 to extract",
-    "sha1": "778d0b014c58e8130804c56e9579a97eb77eee79",
-    "ssdeep": "393216:Fap6O7g0jcBlDxonTFwEf0Hez/3+xpT4WWFobJ2p1ok:RKg0jcBlDxohzMHQupWFobY",
+    "filetype": "PE32 executable (DLL) (console) Intel 80386 Mono/.Net assembly, for MS Windows",
+    "md5": "985d5ff3a3ede247c561c0ea4cedd342",
+    "exif": {
+        "CharacterSet": "Unicode",
+        "CodeSize": 291328,
+        "Comments": "Mono.Security.dll",
+        "CompanyName": "MONO development team",
+        "EntryPoint": "0x2000",
+        "FileDescription": "Mono.Security.dll",
+        "FileFlags": "(none)",
+        "FileFlagsMask": "0x003f",
+        "FileOS": "Win32",
+        "FileSize": "286 kB",
 ...
+..
+.
 """
 
 ```
 
 ### Command Line Usage
-TODO
+```
+$ PyVirusShare download -k <api_key> -hs <hash_string> -o <output_dir>
+```
 
 ## Documentation
