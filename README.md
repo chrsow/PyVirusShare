@@ -47,3 +47,6 @@ $ PyVirusShare download -k <api_key> -hs <hash_string> -o <output_dir>
 
 ## TODO
 [ ] Implement the functionalities with the list of hashes and its rate limit system.
+
+## License
+This project is licensed under the terms of the MIT license.
