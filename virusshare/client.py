@@ -58,10 +58,10 @@ class VirusShare:
             f.write(result.content)
 
     def quick(self, hash_str: str) -> dict:
-        result = self._request('/file', hash_str)
+        result = self._request('/quick', hash_str)
         return {'data': result.json()}
 
     def source(self, hash_str: str) -> dict:
-        result = self._request('/file', hash_str)
+        result = self._request('/source', hash_str)
         return {'data': result.json()}
 
