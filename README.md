@@ -13,7 +13,7 @@ from virusshare import VirusShare
 
 v = VirusShare('<api_key>')
 
-result = v.get_info('a1ac533baaf7de1dae53cf5b465aeca28a7f20bdfc79e5a0a39437dd728c231f')
+result = v.info('a1ac533baaf7de1dae53cf5b465aeca28a7f20bdfc79e5a0a39437dd728c231f')
 
 print(result['data'])
 """
@@ -44,3 +44,6 @@ $ PyVirusShare download -k <api_key> -hs <hash_string> -o <output_dir>
 ```
 
 ## Documentation
+
+## TODO
+[ ] Implement the functionalities with the list of hashes and its rate limit system.
