@@ -41,32 +41,27 @@ class VirusShare:
                 raise APIError('GET {}, {} {}'.format(req_path, status_code, 'Internal server error.'))
             elif status_code == 503:
                 raise APIError('GET {}, {} {}'.format(req_path, status_code, 'Service unavailable.'))
-            else: 
-                result = {'data': resp.json()}
-                return result
+            else:
+                return resp
         except requests.exceptions.RequestException as e:
             raise SystemExit(e)
 
     def info(self, hash_str: str) -> dict:
         result = self._request('/file', hash_str)
-        return result
+        return {'data': result.json()}
 
-    def download(self, hash_str: str, dest: str) -> dict:
-        if not isinstance(dest, str):
-            raise ValueError('Destination folder can only be a string.')
-        
+    def download(self, hash_str: str, dest: str):
         result = self._request('/download', hash_str)
         
         dest_folder = Path(dest)
-        with open(dest / ('VirusShare_%s.zip' % hash_str) , 'w') as f:
-            f.write(result['data'].content)
-        return result
+        with open(dest_folder / ('VirusShare_%s.zip' % hash_str) , 'wb') as f:
+            f.write(result.content)
 
     def quick(self, hash_str: str) -> dict:
-        result = self._request('/quick', hash_str)
-        return result
+        result = self._request('/file', hash_str)
+        return {'data': result.json()}
 
     def source(self, hash_str: str) -> dict:
-        result = self._request('/source', hash_str)
-        return result
+        result = self._request('/file', hash_str)
+        return {'data': result.json()}
 
