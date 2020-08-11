@@ -1,5 +1,5 @@
 # PyVirusShare
-A Python 3 library to interact with VirusShare API v2. Inspired from the latest [update](https://virusshare.com/whatsnew) from VirusShare and the existed tool, [vt-py](https://github.com/VirusTotal/vt-py); a client library for VirusTotal.
+A Python 3 library to interact with VirusShare API v2. The project is inspired from the latest [update](https://virusshare.com/whatsnew) from VirusShare and the existed tool, [vt-py](https://github.com/VirusTotal/vt-py); a client library for VirusTotal.
 
 ## Installation
 ```
@@ -46,6 +46,8 @@ $ PyVirusShare download -k <api_key> -hs <hash_string> -o <output_dir>
 ## Documentation
 
 ## TODO
+[ ] Test on Linux
+[ ] Test on Windows
 [ ] Implement the functionalities with the list of hashes and its rate limit system.
 
 ## License

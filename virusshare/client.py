@@ -1,7 +1,12 @@
 import requests
+from pathlib import Path
 
 _API_ENDPOINT = 'https://virusshare.com/apiv2'
 # _RATE_LIMIT = 4
+
+class APIError(Exception):
+    """Raised when there is any error from the API."""
+    pass
 
 class VirusShare:
     """Client for interacting with VirusShare.
@@ -9,8 +14,7 @@ class VirusShare:
     """
     # :param rateLimit: A rate limit for request per minute.
 
-    def __init__(self, api_key: str):#, rateLimit: int):
-        
+    def __init__(self, api_key: str):#, rateLimit: int):    
         if not isinstance(api_key, str):
             raise ValueError('API can only be a string.')
         if not api_key:
@@ -26,17 +30,17 @@ class VirusShare:
             resp = requests.get(self.endpoint + req_path, params=payload)
             status_code = resp.status_code
             if status_code == 204:
-                raise ApiError('GET /{}, {} {}'.format(source, status_code, 'Request rate limit exceeded.'))
+                raise APIError('GET {}, {} {}'.format(req_path, status_code, 'Request rate limit exceeded.'))
             elif status_code == 400:
-                raise ApiError('GET /{}, {} {}'.format(source, status_code, 'Bad request.'))
+                raise APIError('GET {}, {} {}'.format(req_path, status_code, 'Bad request.'))
             elif status_code == 403:
-                raise ApiError('GET /{}, {} {}'.format(source, status_code, 'Forbidden.'))
+                raise APIError('GET {}, {} {}'.format(req_path, status_code, 'Forbidden.'))
             elif status_code == 404:
-                raise ApiError('GET /{}, {} {}'.format(source, status_code, 'Not found.'))
+                raise APIError('GET {}, {} {}'.format(req_path, status_code, 'Not found.'))
             elif status_code == 500:
-                raise ApiError('GET /{}, {} {}'.format(source, status_code, 'Internal server error.'))
+                raise APIError('GET {}, {} {}'.format(req_path, status_code, 'Internal server error.'))
             elif status_code == 503:
-                raise ApiError('GET /{}, {} {}'.format(source, status_code, 'Service unavailable.'))
+                raise APIError('GET {}, {} {}'.format(req_path, status_code, 'Service unavailable.'))
             else: 
                 result = {'data': resp.json()}
                 return result
@@ -48,7 +52,14 @@ class VirusShare:
         return result
 
     def download(self, hash_str: str, dest: str) -> dict:
+        if not isinstance(dest, str):
+            raise ValueError('Destination folder can only be a string.')
+        
         result = self._request('/download', hash_str)
+        
+        dest_folder = Path(dest)
+        with open(dest / ('VirusShare_%s.zip' % hash_str) , 'w') as f:
+            f.write(result['data'].content)
         return result
 
     def quick(self, hash_str: str) -> dict:
