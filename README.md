@@ -39,9 +39,10 @@ print(result['data'])
 ```
 
 ### Command Line Usage
-```
+<!-- ```
 $ PyVirusShare download -k <api_key> -hs <hash_string> -o <output_dir>
-```
+``` -->
+TODO
 
 ## Documentation
 
