@@ -11,8 +11,10 @@ pip3 install PyVirusShare
 ```python
 from virusshare import VirusShare
 
+# Create an instance of PyVirusShare
 v = VirusShare('<api_key>')
 
+# Search for the information about the specific hash
 result = v.info('a1ac533baaf7de1dae53cf5b465aeca28a7f20bdfc79e5a0a39437dd728c231f')
 
 print(result['data'])

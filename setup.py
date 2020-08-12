@@ -19,7 +19,7 @@ setuptools.setup(
     license='MIT',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://github.com/chrsow/VirusShare',
+    url='https://github.com/chrsow/PyVirusShare',
     packages=['virusshare'],
     python_requires='>=3.6.0',
     install_requires=[            # I get to this in a second
